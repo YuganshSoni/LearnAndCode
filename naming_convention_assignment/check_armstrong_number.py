@@ -1,4 +1,4 @@
-def calculate_armstrong_sum(number):
+def calculate_armstrong_sum(number: int):
     armstrong_sum = 0
     digit_count = 0
  
@@ -16,9 +16,8 @@ def calculate_armstrong_sum(number):
 
 
 if __name__ == "__main__":  
-    user_number = int(input("\nPlease Enter the Number to Check for Armstrong: "))
-    
-    if (user_number == calculate_armstrong_sum(user_number)):
-        print("\n %d is Armstrong Number.\n" % user_number)
+    input_number = int(input("Please Enter the Number to Check for Armstrong: "))
+    if (input_number == calculate_armstrong_sum(input_number)):
+        print(f"{input_number} is Armstrong Number.\n")
     else:
-        print("\n %d is Not a Armstrong Number.\n" % user_number)
+        print(f"{input_number} is Not a Armstrong Number.\n")
