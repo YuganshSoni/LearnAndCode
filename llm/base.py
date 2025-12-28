@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from langchain_core.runnables import Runnable
 
 class LLMProvider(ABC):
     """Base class for defining contract of all llm provider"""
@@ -7,9 +8,7 @@ class LLMProvider(ABC):
         self.config = config
         self._llm = None
     
-    #forces base class to implement generate method(run time polymorphism[method overriding])
+    #forces base class to implement create_llm method(run time polymorphism[method overriding])
     @abstractmethod
-    def create_llm(self)->str:
+    def create_llm(self)->Runnable:
         pass
-
-    
