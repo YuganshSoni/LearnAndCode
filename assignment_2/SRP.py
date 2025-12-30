@@ -1,4 +1,30 @@
+"""
+Single Responsibility Principle:
+A class should have one, and only one, reason to change.
+
+Book Class does not follow SRP due to below reasons : 
+
+A. For functions : getCurrentPage(), turnPage()
+Reasons to change:
+a. Pagination logic changes
+b. Reading direction changes
+This should belongs to separate class, which can be named as BookReader
+
+B. For function getLocation()
+Reason to change:
+Library layout changes
+Shelf system changes
+This should belongs to separate class, which can be named as LibraryLocation
+
+C. function save()
+Reason to change:
+File format changes
+Storage path changes
+This should belongs to separate class, which can be named as BookRepository
+"""
+
 from abc import ABC, abstractmethod
+
 class Book:
  
     def getTitle():
