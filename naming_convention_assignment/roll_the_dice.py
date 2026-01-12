@@ -7,7 +7,7 @@ def roll_dice(upper_limit:int)->int:
 def main():
     dice_faces = NumberConfig.DICE_FACES
     while True:
-        user_input = input("Ready to roll? Enter Q to Quit : ")
+        user_input = input("Press enter to roll the dice, Enter Q to Quit : ")
         if user_input.lower() == "q":
             break
         else:

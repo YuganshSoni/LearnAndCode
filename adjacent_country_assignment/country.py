@@ -17,7 +17,6 @@ class Country:
         return ''.join(valid_country_code)
 
     def get_adjacent_country(self, country_code : str):
-        country_code = self.validate_country_code(country_code)
         if country_code not in CountryMappings.adjacent_countries.keys():
             return None
         return CountryMappings.adjacent_countries.get(country_code)

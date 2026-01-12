@@ -1,4 +1,4 @@
-def calculate_armstrong_sum(number: int):
+def calculate_armstrong_sum(number: int)->int:
     armstrong_sum = 0
     digit_count = 0
  
@@ -10,7 +10,7 @@ def calculate_armstrong_sum(number: int):
     temp_number = number
     for _ in range(1, temp_number + 1):
         digit = temp_number % 10
-        armstrong_sum = armstrong_sum + (digit ** digit_count)
+        armstrong_sum += (digit ** digit_count)
         temp_number //= 10
     return armstrong_sum
 
