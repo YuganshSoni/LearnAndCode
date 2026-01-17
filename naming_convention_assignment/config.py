@@ -2,3 +2,4 @@ class NumberConfig:
     GUESS_NUMBER_LOWER_LIMIT = 1
     GUESS_NUMBER_UPPER_LIMIT = 100
     DICE_FACES = 6
+    EXIT_COMMAND = "q"

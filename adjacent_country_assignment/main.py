@@ -9,7 +9,7 @@ def main():
         return
     adjacent_countries = country_service.get_adjacent_country(country_code)
     if adjacent_countries is None:
-        print("country code not present in database")
+        print("Invalid country code or country code not present in database")
         return
     country_service.display_adjacent_country(adjacent_countries)
 

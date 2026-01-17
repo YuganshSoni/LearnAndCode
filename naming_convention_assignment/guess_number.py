@@ -4,7 +4,6 @@ import random
 def number_is_in_range(number:int, lower_limit:int, upper_limit:int)->bool:
     return number >=lower_limit and number <= upper_limit
 
-
 def user_guess(user_message:str)->int:
     while True:
         try:
@@ -37,6 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
     
