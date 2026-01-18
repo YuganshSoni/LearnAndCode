@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Iterable
+from pathlib import Path
 import csv
 import io
 
@@ -38,9 +39,29 @@ class CustomerService:
         return sorted(search_result, key=lambda customer: customer.customer_id)
 
 class CustomerCsvExporter:
-    @staticmethod
-    def export(customers: List[Customer]) -> str:
-        print(customers)
+    FILE_HEADERS = ["customer_id", "company_name", "contact_name", "country"]
+    FILE_NAME="customer_details.csv"
+
+    @classmethod
+    def save_content_to_csv_file(cls, csv_file, file_exists : bool):
+        with csv_file.open(mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            if not file_exists:
+                writer.writerow(CustomerCsvExporter.FILE_HEADERS)
+
+            for customer in customers:
+                writer.writerow([
+                    customer.customer_id,
+                    customer.company_name,
+                    customer.contact_name,
+                    customer.country
+                ])
+
+    @classmethod
+    def export(cls, customers: List[Customer]) -> str:
+        csv_file = Path(cls.FILE_NAME)
+        file_exists = csv_file.exists()
+        cls.save_content_to_csv_file(csv_file, file_exists)
 
 customers = [
     Customer("Customer_1", "ITT Pvt Limited", "Eric", "USA"),

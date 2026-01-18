@@ -41,13 +41,13 @@ class Employee:
     department : str
     working : bool
 
-    def save_employeeTODatabase():
+    def save_employee():
         pass
-    def printEmployeeDetailReportXML():
+    def export_employee_details_to_xml():
         pass
-    def printEmployeeDetailReportCSV():
+    def export_employee_details_to_csv():
         pass
-    def terminateEmployee():
+    def terminate_employee():
         pass
-    def isWorking()->bool:
+    def is_working()->bool:
         pass

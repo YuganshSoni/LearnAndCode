@@ -1,5 +1,5 @@
 from typing import List
-FIRST_STRING_ELEMENTS = 2
+NUMBER_OF_ELEMENTS_IN_FIRST_INPUT_STRING = 2
 
 def compute_prefix_sums(values: List[int]) -> List[int]:
     prefix_sums = [0]
@@ -20,17 +20,17 @@ def is_valid_query(left: int, right: int, size: int) -> bool:
 def take_input(user_message:str) -> List[int]:
     return list(map(int, input(user_message).split()))
 
-def validate_number_count(numbers:list, size:int)->bool:
+def invalidate_number_count(numbers:list, size:int)->bool:
     if len(numbers) != size:
         print("Invalid input")
         return True
     return False
 
-def take_index_strings_input(query_count: int, array_size: int):
+def input_strings(query_count: int, array_size: int):
     index_store = []
     for count in range(query_count):
         query = take_input(f"Enter {count} query : ")
-        if validate_number_count(query, 2):
+        if invalidate_number_count(query, NUMBER_OF_ELEMENTS_IN_FIRST_INPUT_STRING):
             continue
 
         left, right = query
@@ -42,16 +42,16 @@ def take_index_strings_input(query_count: int, array_size: int):
         
 def main() -> None:
     array_size_and_query_information = take_input("Enter array size and number of queries : ")
-    if validate_number_count(array_size_and_query_information, FIRST_STRING_ELEMENTS):
+    if invalidate_number_count(array_size_and_query_information, NUMBER_OF_ELEMENTS_IN_FIRST_INPUT_STRING):
         return
     
     array_size, query_count = array_size_and_query_information
     array_values = take_input("Enter array elements : ")
-    if validate_number_count(array_values, array_size) or array_size == 0:
+    if invalidate_number_count(array_values, array_size) or array_size == 0:
         return
 
     prefix_sums = compute_prefix_sums(array_values)
-    queries = take_index_strings_input(query_count, array_size)
+    queries = input_strings(query_count, array_size)
     for query in queries:
         left_index, right_index = query
         print(compute_floor_mean(prefix_sums, left_index, right_index))
