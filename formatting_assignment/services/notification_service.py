@@ -1,3 +1,4 @@
+import uuid
 class NotificationService:
 
     @staticmethod

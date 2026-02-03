@@ -11,4 +11,6 @@ class PaymentRequest:
     amount : float
 
 class PaymentResult:
-    pass
+    success : bool
+    message : str
+    transaction_id : uuid
