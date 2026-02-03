@@ -1,16 +1,15 @@
 from datetime import datetime
-import uuid
 
 class PaymentRecord:
-    customer_id : uuid
+    customer_id : str
     amount : float
     timestamp : datetime
 
 class PaymentRequest:
-    customer_id : uuid
+    customer_id : str
     amount : float
 
 class PaymentResult:
     success : bool
     message : str
-    transaction_id : uuid
+    transaction_id : str
