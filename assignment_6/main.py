@@ -14,9 +14,9 @@ if __name__ == "__main__":
         batch_size=50
     )
 
-    processor = DataProcessor(state)
-    processor.process_data()
-    processor.display_statistics()
+    processor_service = DataProcessor(state)
+    processor_service.process_data()
+    processor_service.display_statistics()
 
     FileHandlerService.export_to_json("output.json", state.parsed_records)
     FileHandlerService.export_to_xml("output.xml", state.parsed_records)
