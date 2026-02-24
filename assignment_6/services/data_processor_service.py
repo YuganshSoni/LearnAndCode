@@ -1,5 +1,3 @@
-from typing import List, Dict, Any
-
 from models.state_manager import StateManager
 from services.file_handler_service import FileHandlerService
 from services.data_parser_service import DataParser
@@ -53,10 +51,10 @@ class DataProcessor:
 
     def display_statistics(self):
         print("\n=== Processing Statistics ===")
-        for k, v in self.state.statistics.items():
-            print(f"{k}: {v}")
+        for key, value in self.state.statistics.items():
+            print(f"{key}: {value}")
 
         if self.state.error_messages:
             print("\n=== Errors ===")
-            for e in self.state.error_messages:
-                print(f"- {e}")
+            for error in self.state.error_messages:
+                print(f"- {error}")
