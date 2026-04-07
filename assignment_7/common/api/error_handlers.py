@@ -12,5 +12,16 @@ async def domain_exception_handler(request: Request, exc: BaseDomainException):
         }
     )
 
+async def generic_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={
+            "success": False,
+            "error_type": "INTERNAL_SERVER_ERROR",
+            "message": "An unexpected error occurred."
+        }
+    )
+
 def register_error_handlers(app):
     app.add_exception_handler(BaseDomainException, domain_exception_handler)
+    app.add_exception_handler(Exception, generic_exception_handler)
