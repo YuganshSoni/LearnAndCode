@@ -1,12 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from app.services.atm import ATMService
-
-from common.api.exceptions import InvalidDeviceException
-from common.api.exceptions import NetworkConnectionException
-from common.api.exceptions import DeviceLockedException
-from common.api.exceptions import InsufficientBalanceException
-
+from app.handlers.device_handler import DeviceHandler
 class WithdrawRequest(BaseModel):
     card_number: str
     amount: float
@@ -20,7 +15,8 @@ class AtmAPI:
     def __init__(self):
         self.router = APIRouter(prefix="/atm", tags=["atm"])
         self._register_routes()
-        self.atm_service : ATMService = ATMService()
+        self.device_handler : DeviceHandler = DeviceHandler()
+        self.atm_service : ATMService = ATMService(self.device_handler)
 
     def _register_routes(self):
         self.router.add_api_route(
@@ -36,7 +32,7 @@ class AtmAPI:
             return WithdrawResponse(
                 success=True,
                 message="Withdrawal successful",
-                balance=self.atm_service.get_balance(request.card_number)
+                balance=self.device_handler.get_balance(request.card_number)
             )
 
 atm_api = AtmAPI()
